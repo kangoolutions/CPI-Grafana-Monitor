@@ -4,12 +4,20 @@ Integrate your SAP Cloud Integration instance with Grafana Cloud Stack to enhanc
 
 ## About the Project
 
-This project aims to develop an enterprise-ready monitoring solution for SAP Cloud Platform Integration (CPI). As the complexity increases, obtaining a clear overview becomes more challenging. Relying on custom solutions within integration flows may not be optimal for mission-critical applications. This project strives to elevate monitoring to a new level and break free from conventional patterns. It is published as open source so everyone can participate.
+This project aims to develop an enterprise-ready monitoring solution for SAP Cloud Integration (CPI). As the complexity increases, obtaining a clear overview becomes more challenging. Relying on custom solutions within integration flows may not be optimal for mission-critical applications. This project strives to elevate monitoring to a new level and break free from conventional patterns. It is published as open source so everyone can participate.
+
+To get this all working, logs and metrics are send to Grafana Cloud to feed dashboards.
 
 ## About the Author
 
 Kangoolutions GmbH Germany is a fast moving consulting company in the field of SAP Integration and SAP Integration Suite. We want to provide modern solutions for modern companies.
 If you have special needs or you need an implementation partner for SAP Cloud Integration and Monitoring (also connected to your S4), feel free to contact us on [kangoolutions.com](https://kangoolutions.com) or on linkedin.
+
+## Additional Monitoring your SAP ERP
+
+The Grafana stack comes with great benefits to get insights to your SAP ERP. Talk to our experts to get a first overview.
+
+TODO Link.
 
 ## Impressions
 
