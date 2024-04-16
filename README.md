@@ -1,5 +1,6 @@
-| [README](README.md) | [Whats new?](whats_new.md) | [Getting Started](getting_started.md) | [How to use](how_to_use.md) | [Contribute](contribute.md) |   |
-|---------------------|----------------------------|---------------------------------------|-----------------------------|-----------------------------|---|
+| [README](README.md) | [Whats new?](whats_new.md) | [Getting Started](getting_started.md) | [How to use](how_to_use.md) | [Contribute](contribute.md) |     |
+| ------------------- | -------------------------- | ------------------------------------- | --------------------------- | --------------------------- | --- |
+
 # CPI-Grafana-Connect
 
 Integrate your SAP Cloud Integration instance with Grafana Cloud Stack to enhance monitoring and alerting capabilities in SAP Cloud Integration (CPI).
@@ -25,17 +26,17 @@ TODO Link.
 
 ### See All your Messages
 
-![Screenshot](ressources/media/screenshots/promotion1.png)
+![Screenshot](res/media/screenshots/promotion1.png)
 
-![Screenshot](ressources/media/screenshots/promotion1-2.png)
+![Screenshot](res/media/screenshots/promotion1-2.png)
 
 ### See All your Integration Flows
 
-![Screenshot](ressources/media/screenshots/promotion2.png)
+![Screenshot](res/media/screenshots/promotion2.png)
 
 ## Getting started
 
-Please visit our [getting started](getting%20started.md) page.
+Please visit our [getting started](getting_started.md) page.
 
 ## How to Contribute
 
