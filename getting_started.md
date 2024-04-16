@@ -1,3 +1,6 @@
+| [README](README.md) | [Whats new?](whats_new.md) | [Getting Started](getting_started.md) | [How to use](how_to_use.md) | [Contribute](contribute.md) |     |
+| ------------------- | -------------------------- | ------------------------------------- | --------------------------- | --------------------------- | --- |
+
 # Getting started and initial setup
 
 Time needed: 30 minutes

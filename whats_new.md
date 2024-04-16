@@ -1,4 +1,7 @@
-# release notes
+| [README](README.md) | [Whats new?](whats_new.md) | [Getting Started](getting_started.md) | [How to use](how_to_use.md) | [Contribute](contribute.md) |     |
+| ------------------- | -------------------------- | ------------------------------------- | --------------------------- | --------------------------- | --- |
+
+# Release Notes
 
 !! As long as we do not reach version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be resettet.
 

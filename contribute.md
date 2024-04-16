@@ -1,3 +1,6 @@
+| [README](README.md) | [Whats new?](whats_new.md) | [Getting Started](getting_started.md) | [How to use](how_to_use.md) | [Contribute](contribute.md) |     |
+| ------------------- | -------------------------- | ------------------------------------- | --------------------------- | --------------------------- | --- |
+
 # Contribute
 
 We from Kangoolutions believe that open source makes the world a little bit better. This is why we want everyone to use this pice of software and publish it on a TODO license. We did this before with the CPI-Helper browser plugin and there is now a great community that kills bugs and keeps the product up to date.
