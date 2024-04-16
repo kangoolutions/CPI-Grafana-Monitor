@@ -67,6 +67,7 @@ CPI API
 F. ClientID
 G. ClientSecret
 H. TokenUrl
+I. CPI URL
 
 It might me helpful to copy this list and write it together with the credentials/urls to a editor/notepad
 
@@ -105,7 +106,7 @@ Do it by following the steps:
    Choose "ClientId/Secret" as the Key Type.
    ![Create Credentials](res/media/screenshots/cpi/create_api_key.gif)
 
-3. Show key and note clientid (F), clientsecret (G) and tokenurl (H).
+3. Show key and note clientid (F), clientsecret (G), tokenurl (H) and url (I).
    ![Show Key](res/media/screenshots/cpi/show_key.gif)
 
 ## 6. Create credentials artifacts on Cloud Integration and configure Integration Flow
@@ -127,8 +128,7 @@ Please check the following values are configured:
 | Receiver -> InfluxMetrics -> Credential Name | grafana-influx | The credentials for the influx import |
 | Receiver -> Loki -> loki base url | https://logs-prod3.grafana.net | The loki url |
 | Receiver -> Loki -> Credential Name | grafana-loki | The credentials for loki |
-| Receiver -> CPIInternal -> cpi base url | https://xxxxx.it-cpi019.cfapps.us10-002.hana.ondemand.com | From instance key |
-| More -> defaultfrom | 2024-03-11T08:00:00.000 | The current time in UTC |
+| Receiver -> CPIInternal -> cpi base url | https://xxxxx.it-cpi019.cfapps.us10-002.hana.ondemand.com | From instance service key (I) |
 | More -> 'stage like dev, quality or prod' | dev | The stage of your tenant |
 
 ## 8. Run it.
