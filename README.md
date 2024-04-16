@@ -20,7 +20,7 @@ If you have special needs or you need an implementation partner for SAP Cloud In
 
 The Grafana stack comes with great benefits to get insights to your SAP ERP. Talk to our experts to get a first overview.
 
-TODO Link.
+[Contact](https://kangoolutions.com/#contact)
 
 ## Impressions
 
