@@ -60,6 +60,10 @@ C. URL
 Influx (for importing metrics)
 D. Username
 E. URL
+CPI API
+F. ClientID
+G. ClientSecret
+H. TokenUrl
 
 It might me helpful to copy this list and write it together with the credentials/urls to a editor/notepad
 
@@ -80,39 +84,55 @@ You need to do this in your Account Management (https://grafana.com/orgs/yourgra
 
 ## 4. Import Integration Flow to SAP Cloud Integration
 
-Download the package from the git repository (main branch --> Packages) and import it to your Cloud Integration Tenant
+Download the package from the git repository (main branch --> CPI --> Artifacts --> "Send Message Logs and Metrics to Grafana.zip") and import it to your Cloud Integration Tenant. We recommend to create a new package "Kangoolutions Grafana Monitoring" first.
+
+![Package](res/media/screenshots/cpi/cpi_package.png)
 
 ## 5. Create api instance on BTP and collect credentials
 
 1. In order to read message logs etc. from Cloud Integration, you need to have access to the underlying BTP tenant and subaccount (the one where your Cloud Integration runs.). Please activate an instance with the name "Process Integration Runtime" with plan "api" on your BTP subaccount.
 
-It needs the following permissions:
+Do it by following the steps:
 
-<<>>
+1. Go to your subaccount --> Services --> Instances and Subscriptions --> create a new instance of "Process Integration Runtime" with "api" plan, and then select role MonitorDataRead. Select "Client Credentials" as grant type.
 
-2. Create a key pair.
+![Create Instance](res/media/screenshots/cpi/cpi_create_instance.gif)
 
-3. Note clientid, client secret and token url.
+2. Create a Service Key from the created instance.
+   Choose "ClientId/Secret" as the Key Type.
+   ![Create Credentials](res/media/screenshots/cpi/create_api_key.gif)
+
+3. Show key and note clientid (F), clientsecret (G) and tokenurl (H).
+   ![Show Key](res/media/screenshots/cpi/show_key.gif)
 
 ## 6. Create credentials artifacts on Cloud Integration and configure Integration Flow
 
 Now we need to connect the Integration Flow from the package in step 4 with the Grafana Cloud account. Check the reference to the list in step 3.
 
-1. Create a client credentials secret with the Loki credentials (Username (B) and Token (A)). Remember the name of the artifact. We recommend "".
-1. Create a client credentials secret with the Influx credentials (Username (D) and Token (A)). Remember the name of the artifact. We recommend "".
-1. Create a Client Credentials artifact with clientid, clientsecret and token url from 5. Remember the name of the artifact. We recommend "".
+1. Create a client credentials secret with the Loki credentials (Username (B) and Token (A)). Remember the name of the artifact. We recommend "grafana-loki".
+1. Create a client credentials secret with the Influx credentials (Username (D) and Token (A)). Remember the name of the artifact. We recommend "grafana-influx".
+1. Create a Client Credentials artifact with clientid (F), clientsecret (G) and token url (H) from 5. Remember the name of the artifact. We recommend "cpi-api".
 
 ## 7. Configure the log and metric collecting Integration Flow and deploy
 
-The last step is to configure the Integration Flow "" in the package "" from step 4.
+The last step is to configure the Integration Flow "Send MessageLogs and Metrics to Grafana" in the package "Kangoolutions Grafana Monitor" from step 4.
 
-Please check the following values are configured.
-
-Position | -- Name -- | -- Description -- | Example value -|
+Please check the following values are configured:
+| Field | Example Value | Description |
+|------------------------------------------------------|-----------------------------------------------------------|---------------------------------------|
+| Receiver -> InfluxMetrics -> influx metrics base url | https://influx-prod-10-prod-us-central-0.grafana.net | The url for the influx import |
+| Receiver -> InfluxMetrics -> Credential Name | grafana-influx | The credentials for the influx import |
+| Receiver -> Loki -> loki base url | https://logs-prod3.grafana.net | The loki url |
+| Receiver -> Loki -> Credential Name | grafana-loki | The credentials for loki |
+| Receiver -> CPIInternal -> cpi base url | https://xxxxx.it-cpi019.cfapps.us10-002.hana.ondemand.com | From instance key |
+| More -> defaultfrom | 2024-03-11T08:00:00.000 | The current time in UTC |
+| More -> 'stage like dev, quality or prod' | dev | The stage of your tenant |
 
 ## 8. Run it.
 
-Congratulations! If you go back to your dashboard in Grafana Cloud, you will hopefully see data.
+Congratulations! If you go back to your dashboards in Grafana Cloud, you will hopefully see data.
+
+![Dashboard](res/media/screenshots/promotion1.png)
 
 You can connect other Cloud Integrations if you want. Just repeat step 3 to 6 for each instance.
 
