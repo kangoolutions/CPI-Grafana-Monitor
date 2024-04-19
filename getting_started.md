@@ -50,7 +50,8 @@ Looks like this:
 
 1. In your Grafana Instance (https://yourgrafanatenantname.grafana.net), go to Dashboards and create a new Folder for the new dashboards that we will import. We called it "Kangoolutions Cloud Integration Monitor".
    ![Create Folder](res/media/screenshots/grafana.com/create_folder.gif)
-2. Import the dashboards by clicking Import -> Dashboard. You can use id 20662 and 20742 or download the dashboards as json from the main branch --> Grafana Dashboards
+2. Import the dashboards by clicking Import -> Dashboard. You can use id 20662 and 20742 or download the dashboards as json from the main branch --> Grafana Dashboards.
+   During Import you need to match to a new DataSource. Choose for example grafanacloud_yourtenantid_logs for logs and with the same principle for metrics.
 
 ## 3. Collect Credentials from Grafana Cloud
 
