@@ -3,7 +3,7 @@
 
 # Release Notes
 
-!! As long as we do not reach version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be resettet.
+!! As long as we haven’t reached version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be reset.
 
 ## 0.1.0
 
@@ -19,3 +19,4 @@ This is the first public release.
 ### Integration Flows
 
 - Initial Version of the log and metrics collecting Integration Flow
+
