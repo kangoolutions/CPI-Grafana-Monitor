@@ -28,7 +28,7 @@ The Grafana Cloud Account is free in its basic version for up to three users and
 
 1. Go to [www.grafana.com](https://grafana.com/auth/sign-up/create-user) and create a new account.
 
-![Grafana Free Forever](res/media/screenshots/grafana.com/grafana.com_free_forever.png)
+   ![Grafana Free Forever](res/media/screenshots/grafana.com/grafana.com_free_forever.png)
 
 There are two different parts to your new account. Your Grafana Instance where you see dashboards and the Account Management.
 
@@ -38,18 +38,22 @@ There are two different parts to your new account. Your Grafana Instance where y
 Used to see/explore your data and dashboards
 
 Looks like this:
+
 ![Grafana Instance](res/media/screenshots/grafana/grafana_instance.png)
 
 **Account Management**: https://grafana.com/orgs/yourgrafanatenantname
 Used to get credentials and invite users
 
 Looks like this:
+
 ![Account Management](res/media/screenshots/grafana/grafana_account_management.png)
 
 ## 2. Create a Folder for the Dashboard and import Dashboards from the File
 
 1. In your Grafana Instance (https://yourgrafanatenantname.grafana.net), go to the dashboards and create a new folder for the new dashboards that we will import. It is called "Kangoolutions Cloud Integration Monitor".
+
    ![Create Folder](res/media/screenshots/grafana.com/create_folder.gif)
+
 2. Import the dashboards by clicking Import -> Dashboard. You can use IDs 20662 and 20742 or download the dashboards as json from the main branch --> Grafana Dashboards.
    During Import, you need to match to a new Data Source. Choose for example grafanacloud_yourtenantid_logs for logs and apply the same principle to metrics.
 
@@ -77,14 +81,19 @@ You need to do this in your Account Management (https://grafana.com/orgs/yourgra
 1. First we need to create an access policy artifact + create the first token. You can do this in the account management.
    Click on Security --> Access Policies --> Create Access Policy.
    It is important, that you give write access to logs, metrics, and traces (not yet used but maybe later)
+
    ![Access Policy](res/media/screenshots/grafana.com/create_access_policy.gif)
+
 2. Create a token by clicking "Add token" on your new access policy. Remember the created token. We will reference it with (A)
+
    ![Create Token](res/media/screenshots/grafana.com/create_token.gif)
 
 3. Now we need to get the user and URL for Loki. To get this, go back to the account management page and click on Loki. Here you can see username (B) and loki url (C).
+
    ![Loki Credentials](res/media/screenshots/grafana.com/loki_username_url.gif)
 
 4. The next part is the URL and username for metrics. Again, in the account management, click Influx and note username (D) and url (E).
+
    ![Influx](res/media/screenshots/grafana.com/influx_metrics_username_url.gif)
 
 ## 4. Import Integration Flow to SAP Cloud Integration
@@ -101,13 +110,15 @@ Do it by following the steps:
 
 1. Go to your subaccount --> Services --> Instances and Subscriptions --> create a new instance of "Process Integration Runtime" with "api" plan, and then select role MonitorDataRead. Select "Client Credentials" as grant type.
 
-![Create Instance](res/media/screenshots/cpi/cpi_create_instance.gif)
+   ![Create Instance](res/media/screenshots/cpi/cpi_create_instance.gif)
 
 2. Create a Service Key from the created instance.
    Choose "ClientId/Secret" as the Key Type.
+
    ![Create Credentials](res/media/screenshots/cpi/create_api_key.gif)
 
 3. Show key and note clientid (F), clientsecret (G), tokenurl (H) and url (I).
+
    ![Show Key](res/media/screenshots/cpi/show_key.gif)
 
 ## 6. Create credentials artifacts on Cloud Integration and configure Integration Flow
@@ -143,4 +154,3 @@ You can connect other Cloud Integrations if you want. Just repeat steps 3 to 6 f
 ## 9. Give us Feedback (and Collaborate?)
 
 It would be nice if you could give us some feedback, on how you use our tool. You can send us a message via [LinkedIn](https://www.linkedin.com/in/dominic-beckbauer-515894188/), GitHub issue etc. to do so.
-
