@@ -61,18 +61,24 @@ Looks like this:
 
 To send logs and metrics to Grafana Cloud, we need to collect/create the following data.
 
-A. Access Policy with access token to logs and metrics
-Grafana Loki
-B. Username
-C. URL
-Influx (for importing metrics)
-D. Username
-E. URL
-CPI API
-F. ClientID
-G. ClientSecret
-H. TokenUrl
-I. CPI URL
+- A. Access Policy with access token to logs and metrics
+
+**Grafana Loki**
+
+- B. Username
+- C. URL
+
+**Influx (for importing metrics)**
+
+- D. Username
+- E. URL
+
+**CPI API**
+
+- F. ClientID
+- G. ClientSecret
+- H. TokenUrl
+- I. CPI URL
 
 It might be helpful to copy this list and add it together with the credentials/urls to an editor/notepad
 
@@ -141,6 +147,7 @@ Please check if the following values are configured:
 | Receiver -> Loki -> loki base url | https://logs-prod3.grafana.net | The loki url |
 | Receiver -> Loki -> Credential Name | grafana-loki | The credentials for loki |
 | Receiver -> CPIInternal -> cpi base url | https://xxxxx.it-cpi019.cfapps.us10-002.hana.ondemand.com | From instance service key (I) |
+| Receiver -> CPIInternal -> Credential Name | cpi-api | Name of the OAuth2 Client Credentials artifact for the CPI Instance in 6.3 |
 | More -> 'stage like dev, quality or prod' | dev | The stage of your tenant |
 
 ## 8. Run it.

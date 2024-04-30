@@ -3,9 +3,9 @@
 
 # Release Notes
 
-!! As long as we havenÕt reached version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be reset.
+!! As long as we havenï¿½t reached version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be reset.
 
-## 0.1.0
+## 0.1.1
 
 This is the first public release.
 
@@ -16,7 +16,6 @@ This is the first public release.
 - Initial Version of Integration Flows Dashboads
   - Shows statistics about deployed Integration Flows and Integration Flows with deployment errors.
 
-### Integration Flows
+### Integration Flows (1.0.18)
 
 - Initial Version of the log and metrics collecting Integration Flow
-
