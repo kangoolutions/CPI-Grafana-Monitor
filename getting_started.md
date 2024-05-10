@@ -54,8 +54,8 @@ Looks like this:
 
    ![Create Folder](res/media/screenshots/grafana.com/create_folder.gif)
 
-2. Import the dashboards by clicking Import -> Dashboard. You can use IDs 20662 and 20742 or download the dashboards as json from the main branch --> Grafana Dashboards.
-   During Import, you need to match to a new Data Source. Choose for example grafanacloud_yourtenantid_logs for logs and apply the same principle to metrics.
+2. Import the dashboards by clicking Import -> Dashboard. You can use IDs 20662 and 20742 (to import from the Grafana repository) or download and import the dashboards as json from the main branch --> Grafana Dashboards.
+   During import, you need to choose the Data Sources from the dropdown (...-logs and ...-prom).
 
 ## 3. Collect Credentials from Grafana Cloud
 
@@ -131,9 +131,9 @@ Do it by following the steps:
 
 Now we need to connect the Integration Flow from the package in step 4 with the Grafana Cloud account. Check the reference to the list in step 3.
 
-1. Create a client credentials secret with the Loki credentials (Username (B) and Token (A)). Remember the name of the artifact. We recommend "grafana-loki".
-1. Create a client credentials secret with the Influx credentials (Username (D) and Token (A)). Remember the name of the artifact. We recommend "grafana-influx".
-1. Create a Client Credentials artifact with clientid (F), clientsecret (G) and token url (H) from 5. Remember the name of the artifact. We recommend "cpi-api".
+1. Create a User Credentials artifact with the Loki credentials (Username (B) and Token (A)). Remember the name of the artifact. We recommend "grafana-loki".
+1. Create a User Credentials artifact with the Influx credentials (Username (D) and Token (A)). Remember the name of the artifact. We recommend "grafana-influx".
+1. Create an OAuth 2 Client Credentials artifact with clientid (F), clientsecret (G) and token url (H) from 5. Remember the name of the artifact. We recommend "cpi-api".
 
 ## 7. Configure the log and metric collecting Integration Flow and deploy
 
