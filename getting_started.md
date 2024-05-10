@@ -55,7 +55,7 @@ Looks like this:
    ![Create Folder](res/media/screenshots/grafana.com/create_folder.gif)
 
 2. Import the dashboards by clicking Import -> Dashboard. You can use IDs 20662 and 20742 (to import from the Grafana repository) or download and import the dashboards as json from the main branch --> Grafana Dashboards.
-   During Import, you need to chose the Data Sources from the dropdown (...-logs and ...-prom).
+   During import, you need to choose the Data Sources from the dropdown (...-logs and ...-prom).
 
 ## 3. Collect Credentials from Grafana Cloud
 
