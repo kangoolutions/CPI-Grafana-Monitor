@@ -80,6 +80,11 @@ To send logs and metrics to Grafana Cloud, we need to collect/create the followi
 - H. TokenUrl
 - I. CPI URL
 
+**Open Telemetry (in case you want to use traces)**
+
+- J. Open Telemetry InstanceID
+- K. OpenTelemetry URL
+
 It might be helpful to copy this list and add it together with the credentials/urls to an editor/notepad
 
 You need to do this in your Account Management (https://grafana.com/orgs/yourgrafanatenantname)
@@ -101,6 +106,8 @@ You need to do this in your Account Management (https://grafana.com/orgs/yourgra
 4. The next part is the URL and username for metrics. Again, in the account management, click Influx and note username (D) and url (E).
 
    ![Influx](res/media/screenshots/grafana.com/influx_metrics_username_url.gif)
+
+5. To get Open Telemetry Access Data, click Open Telemetry and copy endpoint and instance id (like: https://otlp-gateway-prod-us-central-0.grafana.net/otlp)
 
 ## 4. Import Integration Flow to SAP Cloud Integration
 
@@ -134,6 +141,7 @@ Now we need to connect the Integration Flow from the package in step 4 with the 
 1. Create a User Credentials artifact with the Loki credentials (Username (B) and Token (A)). Remember the name of the artifact. We recommend "grafana-loki".
 1. Create a User Credentials artifact with the Influx credentials (Username (D) and Token (A)). Remember the name of the artifact. We recommend "grafana-influx".
 1. Create an OAuth 2 Client Credentials artifact with clientid (F), clientsecret (G) and token url (H) from 5. Remember the name of the artifact. We recommend "cpi-api".
+1. Create a User Credentials artifact with the Open Telemetry credentials (Username (J) and Token (A)). Remember the name of the artifact. We recommend "otel".
 
 ## 7. Configure the log and metric collecting Integration Flow and deploy
 
@@ -149,6 +157,11 @@ Please check if the following values are configured:
 | Receiver -> CPIInternal -> cpi base url | https://xxxxx.it-cpi019.cfapps.us10-002.hana.ondemand.com | From instance service key (I) |
 | Receiver -> CPIInternal -> Credential Name | cpi-api | Name of the OAuth2 Client Credentials artifact for the CPI Instance in 6.3 |
 | More -> 'stage like dev, quality or prod' | dev | The stage of your tenant |
+| More -> 'fallback last run datetime' | now | The time at which it should start to collect entries. Normally keep "now" |
+| More -> 'regex to exclude integration flows' | (MyIflowToExclude|OtherIflowtoExclude) | Regex for excluded IFlows |
+| More -> 'send traces via open telemetry' | true or false | Check [How to use](how_to_use.md) |
+| More -> 'tenant name' | mytenantname | Tenant name as identifier in Grafana (like start of url) |
+| More -> 'time zone' | CET | your time zone for logs. [Reference](https://code2care.org/pages/java-timezone-list-utc-gmt-offset/) |
 
 ## 8. Run it.
 
