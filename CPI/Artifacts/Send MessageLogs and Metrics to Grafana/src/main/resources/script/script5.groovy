@@ -42,10 +42,15 @@ def processData(Message message) {
         def traceId = traceData.traceId
         def spanId = traceData.spanId
         def parentSpanId = traceData.parentSpanId
+        def statusCode = 1
+        
+        if(entry.Status.text() == "FAILED") {
+            statusCode = 2
+        }
         
         
     
-        if( !ignore && entry.status.text() != "PROCESSING" && traceId && spanId && traceId.size() == 32 && spanId.size() == 16) {
+        if( !ignore && entry.Status.text() != "PROCESSING" && traceId && spanId && traceId.size() == 32 && spanId.size() == 16) {
             
  
             
@@ -77,7 +82,7 @@ def processData(Message message) {
                 events: [],
                 droppedEventsCount: 0,
                 status: [
-                    code: 1
+                    code: statusCode
                 ]
             ]
         }

@@ -12,27 +12,46 @@ def Message processData(Message message) {
    
    def traceparent = message.getHeaders().get("traceparent")
    
+    String traceId = null
+    String parentSpanId = null
+    String traceFlags = "00"
+    
+    String spanId = TraceUtil.generateSpanId()
+   
+   
    if(traceparent) {
        
         def traceparentParts = traceparent.split("-") 
         
-        def traceId = traceparentParts[1]
-        def parentSpanId = traceparentParts[2]
-        def spanId = TraceUtil.generateSpanId()
-        def traceFlags = traceparentParts[3]
-        def newTraceparent = "00-$traceId-$spanId-$traceFlags"
+        traceId = traceparentParts[1]
+        parentSpanId = traceparentParts[2]
+        spanId = TraceUtil.generateSpanId()
+        traceFlags = traceparentParts[3]
+
         
-        def messageLog = messageLogFactory.getMessageLog(message);
-        messageLog.addCustomHeaderProperty("incoming traceparent", traceparent);
-        messageLog.addCustomHeaderProperty("generated traceparent", newTraceparent);
-        messageLog.addCustomHeaderProperty("traceId", traceId);
-        messageLog.addCustomHeaderProperty("parentSpanId", parentSpanId);
-        messageLog.addCustomHeaderProperty("spanId", spanId);
-        messageLog.addCustomHeaderProperty("traceFlags", traceFlags);
+   }
+   
+   if(!traceId) {
+       traceId = TraceUtil.generateTraceId()
+   }
+   
+
         
-        message.setHeader("traceparent", newTraceparent)
-        
+    def newTraceparent = "00-$traceId-$spanId-$traceFlags"
+    def messageLog = messageLogFactory.getMessageLog(message);
+    messageLog.addCustomHeaderProperty("generated traceparent", newTraceparent);
+    messageLog.addCustomHeaderProperty("traceId", traceId);
+    if(parentSpanId && traceparent) {
+       messageLog.addCustomHeaderProperty("parentSpanId", parentSpanId);     
+       messageLog.addCustomHeaderProperty("incoming traceparent", traceparent);
     }
+
+    messageLog.addCustomHeaderProperty("spanId", spanId);
+    messageLog.addCustomHeaderProperty("traceFlags", traceFlags);
+    
+    message.setHeader("traceparent", newTraceparent)
+        
+
 
     return message;
 }

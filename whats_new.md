@@ -5,6 +5,16 @@
 
 !! As long as we haven't reached version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be reset.
 
+## 0.3.0
+
+### Integration Flow (CPI) 1.3.0
+
+[Feature] Send error status with traces
+
+### Additional Scripts (CPI) 1.3.0
+
+[Feature] Add new traceparent header if no traceparent header found
+
 ## 0.2.0
 
 ### Integration Flow (CPI) 1.2.0
