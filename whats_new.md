@@ -3,7 +3,17 @@
 
 # Release Notes
 
-!! As long as we haven't reached version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be reset.
+!! As long as we haven't reached version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be reseted.
+
+## 0.4.0
+
+### Integration Flow (CPI) 1.4.0
+
+[Feature] Now completly on Open Telemetry with logs, metrics and traces
+
+### Dashboards
+
+[Feature] Refactored to use the open telemetry language
 
 ## 0.3.0
 

@@ -69,8 +69,5 @@ Grafana Cloud provides an enterprise-ready observability platform based on the o
 
 ### Backlog
 
-- Sending logs to Grafana Loki using ProcessDirect adapter via the provided Integration Flow
-- Sending logs to Grafana Mimir using ProcessDirect adapter via the provided Integration Flow
-- Providing Groovy Scripts to handle traceparent headers for tracing
-- Sending traces
-- Using Open Telemetry api instead of Loki and Prometheus API
+- Sending logs via Open Telemetry using ProcessDirect adapter via the provided Integration Flow
+- Sending metrics via Open Telemetry using ProcessDirect adapter via the provided Integration Flow

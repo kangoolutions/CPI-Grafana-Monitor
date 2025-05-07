@@ -61,17 +61,13 @@ Looks like this:
 
 To send logs and metrics to Grafana Cloud, we need to collect/create the following data.
 
-- A. Access Policy with access token to logs and metrics
+(A to E no longer needed because we are using Open Telemetry for all connections to Grafana Cloud now since 1.4.0)
 
-**Grafana Loki**
+**Open Telemetry**
 
-- B. Username
-- C. URL
-
-**Influx (for importing metrics)**
-
-- D. Username
-- E. URL
+- A. Access Token
+- B. Open Telemetry InstanceID
+- C. OpenTelemetry URL
 
 **CPI API**
 
@@ -80,10 +76,7 @@ To send logs and metrics to Grafana Cloud, we need to collect/create the followi
 - H. TokenUrl
 - I. CPI URL
 
-**Open Telemetry (in case you want to use traces)**
 
-- J. Open Telemetry InstanceID
-- K. OpenTelemetry URL
 
 It might be helpful to copy this list and add it together with the credentials/urls to an editor/notepad
 
@@ -99,15 +92,7 @@ You need to do this in your Account Management (https://grafana.com/orgs/yourgra
 
    ![Create Token](res/media/screenshots/grafana.com/create_token.gif)
 
-3. Now we need to get the user and URL for Loki. To get this, go back to the account management page and click on Loki. Here you can see username (B) and loki url (C).
-
-   ![Loki Credentials](res/media/screenshots/grafana.com/loki_username_url.gif)
-
-4. The next part is the URL and username for metrics. Again, in the account management, click Influx and note username (D) and url (E).
-
-   ![Influx](res/media/screenshots/grafana.com/influx_metrics_username_url.gif)
-
-5. To get Open Telemetry Access Data, click Open Telemetry and copy endpoint and instance id (like: https://otlp-gateway-prod-us-central-0.grafana.net/otlp)
+3. To get Open Telemetry Access Data, click Open Telemetry in your Account Management and copy instance id (B) and endpoint (C)(like: https://otlp-gateway-prod-us-central-0.grafana.net/otlp)
 
 ## 4. Import Integration Flow to SAP Cloud Integration
 
@@ -138,10 +123,8 @@ Do it by following the steps:
 
 Now we need to connect the Integration Flow from the package in step 4 with the Grafana Cloud account. Check the reference to the list in step 3.
 
-1. Create a User Credentials artifact with the Loki credentials (Username (B) and Token (A)). Remember the name of the artifact. We recommend "grafana-loki".
-1. Create a User Credentials artifact with the Influx credentials (Username (D) and Token (A)). Remember the name of the artifact. We recommend "grafana-influx".
-1. Create an OAuth 2 Client Credentials artifact with clientid (F), clientsecret (G) and token url (H) from 5. Remember the name of the artifact. We recommend "cpi-api".
-1. Create a User Credentials artifact with the Open Telemetry credentials (Username (J) and Token (A)). Remember the name of the artifact. We recommend "otel".
+1. Create an OAuth 2 Client Credentials artifact with clientid (F), clientsecret (G) and token url (H) from 5. Remember the name of the artifact. We recommend something containing "cpi-api".
+1. Create a User Credentials artifact with the Open Telemetry credentials (Username (J) and Token (A)). Remember the name of the artifact. We recommend something containing "otel".
 
 ## 7. Configure the log and metric collecting Integration Flow and deploy
 
@@ -150,10 +133,8 @@ The last step is to configure the Integration Flow "Send MessageLogs and Metrics
 Please check if the following values are configured:
 | Field | Example Value | Description |
 |------------------------------------------------------|-----------------------------------------------------------|---------------------------------------|
-| Receiver -> InfluxMetrics -> influx metrics base url | https://influx-prod-10-prod-us-central-0.grafana.net | The url for the influx import |
-| Receiver -> InfluxMetrics -> Credential Name | grafana-influx | The credentials for the influx import |
-| Receiver -> Loki -> loki base url | https://logs-prod3.grafana.net | The loki url |
-| Receiver -> Loki -> Credential Name | grafana-loki | The credentials for loki |
+| Receiver -> OTEL -> otel base url | https://logs-prod3.grafana.net | The otel url (C) |
+| Receiver -> OTEL -> Credential Name | otel | The credentials for otel |
 | Receiver -> CPIInternal -> cpi base url | https://xxxxx.it-cpi019.cfapps.us10-002.hana.ondemand.com | From instance service key (I) |
 | Receiver -> CPIInternal -> Credential Name | cpi-api | Name of the OAuth2 Client Credentials artifact for the CPI Instance in 6.3 |
 | More -> 'stage like dev, quality or prod' | dev | The stage of your tenant |

@@ -1,0 +1,15 @@
+#
+#Wed May 07 19:41:04 UTC 2025
+otel\ credentials\ type=Basic
+fallback\ last\ run\ datetime\ (eg\:\ 2024-03-11T08\:00\:00.000)=now
+otel\ credentials\ artifact=otel-credentials
+timezone=CET
+send\ traces\ via\ open\ telemetry\ (true|false)=true
+low\ frequency\ timer=<row><cell>dayValue</cell><cell></cell></row><row><cell>monthValue</cell><cell></cell></row><row><cell>yearValue</cell><cell></cell></row><row><cell>dateType</cell><cell>DAILY</cell></row><row><cell>secondValue</cell><cell>0</cell></row><row><cell>minutesValue</cell><cell></cell></row><row><cell>hourValue</cell><cell></cell></row><row><cell>toInterval</cell><cell>24</cell></row><row><cell>fromInterval</cell><cell>0</cell></row><row><cell>OnEveryMinute</cell><cell>10</cell></row><row><cell>timeType</cell><cell>TIME_INTERVAL</cell></row><row><cell>timeZone</cell><cell>( UTC 0\:00 ) Greenwich Mean Time(Etc/GMT)</cell></row><row><cell>throwExceptionOnExpiry</cell><cell>true</cell></row><row><cell>second</cell><cell>*</cell></row><row><cell>minute</cell><cell>*</cell></row><row><cell>hour</cell><cell>*</cell></row><row><cell>day_of_month</cell><cell>?</cell></row><row><cell>month</cell><cell>*</cell></row><row><cell>dayOfWeek</cell><cell>*</cell></row><row><cell>year</cell><cell>*</cell></row><row><cell>startAt</cell><cell></cell></row><row><cell>endAt</cell><cell></cell></row><row><cell>attributeBehaviour</cell><cell>isRunOnceVisible,isScheduleOnDayVisible,isScheduleRecurVisible</cell></row><row><cell>triggerType</cell><cell>cron</cell></row><row><cell>noOfSchedules</cell><cell>1</cell></row><row><cell>schedule1</cell><cell>0+0/10+0-23+?+*+*+*&amp;trigger.timeZone\=Etc/GMT</cell></row>
+tenant\ name=kangoo-dev2-aws
+cpi\ credentials=cpi-api
+regex\ to\ exclude\ integration\ flows\ from\ logs=
+otel\ receiver\ url=https\://otlp-gateway-prod-us-central-0.grafana.net/otlp
+otelCollector=CPI_otel_collector
+stage\ (dev|qual|prod)=dev
+cpi\ base\ url=https\://kangoo-dev2-aws.it-cpi019.cfapps.us10-002.hana.ondemand.com

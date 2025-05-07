@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><parameters><parameter>
+    <key/>
+    <name>otel credentials type</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata>
+      <isCombobox>true</isCombobox>
+    </additionalMetadata>
+  </parameter><parameter>
+    <key/>
+    <name>fallback last run datetime (eg: 2024-03-11T08:00:00.000)</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>otel credentials artifact</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>timezone</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>send traces via open telemetry (true|false)</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>low frequency timer</name>
+    <type>custom:schedule</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>tenant name</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>cpi credentials</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>regex to exclude integration flows from logs</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>otel receiver url</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>stage (dev|qual|prod)</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>cpi base url</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>otelCollector</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description>what colletor is being used?</description>
+    <additionalMetadata/>
+  </parameter><param_references><reference attribute_category="OTEL_Receiver.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::authenticationMethod" attribute_uilabel="Authentication" param_key="otel credentials type"/><reference attribute_category="OTEL_Receiver.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::credentialName" attribute_uilabel="Credential Name" param_key="otel credentials artifact"/><reference attribute_category="OTEL_Receiver" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="otel receiver url"/><reference attribute_category="OTEL_Receiver.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::authenticationMethod" attribute_uilabel="Authentication" param_key="otel credentials type"/><reference attribute_category="OTEL_Receiver.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::credentialName" attribute_uilabel="Credential Name" param_key="otel credentials artifact"/><reference attribute_category="OTEL_Receiver" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="otel receiver url"/><reference attribute_category="OTEL_Receiver.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::authenticationMethod" attribute_uilabel="Authentication" param_key="otel credentials type"/><reference attribute_category="OTEL_Receiver.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::credentialName" attribute_uilabel="Credential Name" param_key="otel credentials artifact"/><reference attribute_category="OTEL_Receiver" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="otel receiver url"/><reference attribute_category="CPIInternal.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::credentialName" attribute_uilabel="Credential Name" param_key="cpi credentials"/><reference attribute_category="CPIInternal" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.15.0/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="cpi base url"/><reference attribute_category="CPIInternal.Receiver.System" attribute_id="ctype::AdapterVariant/cname::HCIOData/tp::HTTP/mp::OData V2/direction::Receiver/version::1.23.1/attrId::address" attribute_uilabel="Address" param_key="cpi base url"/><reference attribute_category="CPIInternal.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HCIOData/tp::HTTP/mp::OData V2/direction::Receiver/version::1.23.1/attrId::alias" attribute_uilabel="Credential Name" param_key="cpi credentials"/><reference attribute_category="CPIInternal.Receiver.System" attribute_id="ctype::AdapterVariant/cname::HCIOData/tp::HTTP/mp::OData V2/direction::Receiver/version::1.23.1/attrId::address" attribute_uilabel="Address" param_key="cpi base url"/><reference attribute_category="CPIInternal.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HCIOData/tp::HTTP/mp::OData V2/direction::Receiver/version::1.23.1/attrId::alias" attribute_uilabel="Credential Name" param_key="cpi credentials"/></param_references></parameters>
