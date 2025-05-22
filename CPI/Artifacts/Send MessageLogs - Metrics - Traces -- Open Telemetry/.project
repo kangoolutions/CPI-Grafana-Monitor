@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><projectDescription>
-   <name>Send_MessageLogs_-_Metrics_-_Traces_--_Open_Telemetry</name>
+   <name>Send_MessageLogs_and_Metrics_to_Grafana</name>
    <comment/>
    <projects/>
    <buildSpec>

@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: Send_MessageLogs_-_Metrics_-_Traces_--_Open_Telemet
- ry
+Bundle-SymbolicName: Send_MessageLogs_and_Metrics_to_Grafana
 Bundle-ManifestVersion: 2
-Origin-Bundle-SymbolicName: Send_MessageLogs_-_Metrics_-_Traces_--_Open_
- Telemetry
+Origin-Bundle-SymbolicName: Send_MessageLogs_and_Metrics_to_Grafana
 Origin-Bundle-Version: 1.3.0
 Import-Package: com.sap.esb.application.services.cxf.interceptor,com.sap
  .esb.security,com.sap.it.op.agent.api,com.sap.it.op.agent.collector.cam
@@ -31,11 +29,10 @@ Import-Package: com.sap.esb.application.services.cxf.interceptor,com.sap
  om.sap.esb.camel.jdbc.idempotency.reorg,javax.sql,org.apache.camel.proc
  essor.idempotent.jdbc,org.osgi.service.blueprint;version="[1.0.0,2.0.0)
  "
-Origin-Bundle-Name: Send MessageLogs - Metrics - Traces -- Open Telemetr
- y
+Origin-Bundle-Name: Send MessageLogs and Metrics to Grafana
 SAP-RuntimeProfile: iflmap
-Bundle-Name: Send MessageLogs - Metrics - Traces -- Open Telemetry
-Bundle-Version: 1.4.1
+Bundle-Name: Send MessageLogs and Metrics to Grafana
+Bundle-Version: 1.3.1
 SAP-NodeType: IFLMAP
 Origin-ModifiedDate: 1732875447316
 SAP-BundleType: IntegrationFlow
@@ -45,7 +42,4 @@ Import-Service: com.sap.esb.webservice.audit.log.AuditLogger,com.sap.esb
  er="(dataSourceName=default)",org.apache.cxf.ws.rm.persistence.RMStore;
  multiple:=false,com.sap.esb.camel.security.cms.SignatureSplitter;multip
  le:=false
-Require-Capability: scriptcollection.Monitoring_Additional_Scripts;resol
- ution:=optional;bundleType:String="ScriptCollection";source:String="ref
- erence"
 

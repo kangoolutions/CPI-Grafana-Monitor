@@ -131,8 +131,8 @@
             "uid": "grafanacloud-logs"
           },
           "direction": "backward",
-          "editorMode": "code",
-          "expr": "sum(count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt | label_format level=log_level [1h]))",
+          "editorMode": "builder",
+          "expr": "sum(count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | label_format level=log_level [1h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -241,8 +241,8 @@
             "uid": "grafanacloud-logs"
           },
           "direction": "backward",
-          "editorMode": "code",
-          "expr": "sum(count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `status=COMPLETED` | logfmt [1h]))",
+          "editorMode": "builder",
+          "expr": "sum(count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `status=COMPLETED` [1h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -356,7 +356,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "sum(count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `status=FAILED` | logfmt [1h]))",
+          "expr": "sum(count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `status=FAILED` | logfmt [1h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -564,8 +564,8 @@
             "uid": "grafanacloud-logs"
           },
           "direction": "backward",
-          "editorMode": "builder",
-          "expr": "sum by(name, package_id, level) (count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt | label_format level=log_level [$__auto]))",
+          "editorMode": "code",
+          "expr": "sum by(name, package_id, level) (count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt | label_format level=log_level [$__auto]))",
           "queryType": "instant",
           "refId": "A"
         }
@@ -701,7 +701,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "sum(count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `status=RETRY` | logfmt [1h]))",
+          "expr": "sum(count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `status=RETRY` | logfmt [1h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -811,7 +811,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "sum(count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} != `status=FAILED` != `status=COMPLETED` != `status=RETRY` | logfmt [1h]))",
+          "expr": "sum(count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} != `status=FAILED` != `status=COMPLETED` != `status=RETRY` | logfmt [1h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -953,8 +953,8 @@
             "uid": "grafanacloud-logs"
           },
           "direction": "backward",
-          "editorMode": "code",
-          "expr": "sum(count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt | status = `FAILED` [$__auto]))",
+          "editorMode": "builder",
+          "expr": "sum(count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | status = `FAILED` [$__auto]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -1052,7 +1052,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "sum(count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt | status != `DISCARDED` | status != `PROCESSING` [$__auto]))",
+          "expr": "sum(count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt | status != `DISCARDED` | status != `PROCESSING` [$__auto]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -1174,7 +1174,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "sum by(log_level) (count_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt [$__auto]))",
+          "expr": "sum by(log_level) (count_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `` | logfmt [$__auto]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -1275,7 +1275,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "max by(iflow) (max_over_time({service_name=~\"(${tenant_name:pipe})\", deployment_environment=~\"(${env:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `duration_ms` | logfmt | unwrap duration_ms [$__auto]))",
+          "expr": "max by(iflow) (max_over_time({service_name=~\"(${Tenant:pipe})\", deployment_environment=~\"(${Environment:pipe})\", service_namespace=~\"CPI\", service_instance_id=~\"(${IFlow:pipe})\"} |= `duration_ms` | logfmt | unwrap duration_ms [$__auto]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -1344,12 +1344,12 @@
           },
           "direction": "backward",
           "editorMode": "builder",
-          "expr": "{deployment_environment=~\"(${env:pipe})\", service_name=~\"(${tenant_name:pipe})\"} | logfmt | label_format level=log_level",
+          "expr": "{deployment_environment=~\"(${Environment:pipe})\", service_name=~\"(${Tenant:pipe})\"} | label_format level=log_level",
           "queryType": "range",
           "refId": "A"
         }
       ],
-      "title": "New panel",
+      "title": "Messages",
       "transformations": [
         {
           "id": "extractFields",
@@ -1431,7 +1431,7 @@
         "includeAll": true,
         "label": "Environment",
         "multi": true,
-        "name": "env",
+        "name": "Environment",
         "options": [],
         "query": {
           "label": "deployment_environment",
@@ -1459,7 +1459,7 @@
         "includeAll": true,
         "label": "Tenant",
         "multi": true,
-        "name": "tenant_name",
+        "name": "Tenant",
         "options": [],
         "query": {
           "label": "service_name",
@@ -1520,5 +1520,5 @@
   "timezone": "browser",
   "title": "CPI Monitoring - Messages",
   "uid": "eegsc2voqqa68b",
-  "version": 43
+  "version": 61
 }

@@ -5,6 +5,10 @@
 
 !! As long as we haven't reached version 1.0.0, there might be breaking changes between the versions. Data might be collected differently and data collection for some logs and metrics might be reseted.
 
+## 0.4.1
+
+[Improvement] Minor improvements in Integration Flow and Dashboard
+
 ## 0.4.0
 
 ### Integration Flow (CPI) 1.4.0

@@ -158,7 +158,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max by(iflow) (integration_flow_is_running_total_ratio{deployment_environment=~\"(${env:pipe})\", service_name=~\"(${tenant_name:pipe})\", service_namespace=\"cpi\"})",
+          "expr": "max by(iflow) (integration_flow_is_running_total_count{deployment_environment=~\"(${Environment:pipe})\", service_name=~\"(${Tenant:pipe})\", service_namespace=\"CPI\"})",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -225,8 +225,8 @@
             "uid": "grafanacloud-prom"
           },
           "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum(integration_flow_is_running_total_ratio{deployment_environment=~\"(${env:pipe})\", service_namespace=\"cpi\", service_name=~\"(${tenant_name:pipe})\"})",
+          "editorMode": "builder",
+          "expr": "sum(integration_flow_is_running_total_count{deployment_environment=~\"(${Environment:pipe})\", service_namespace=\"CPI\", service_name=~\"(${Tenant:pipe})\"})",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "range": true,
@@ -342,7 +342,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "count(integration_flow_is_running_total_ratio{deployment_environment=~\"(${env:pipe})\", service_namespace=\"cpi\", service_name=~\"(${tenant_name:pipe})\"} == 0)",
+          "expr": "count(integration_flow_is_running_total_count{deployment_environment=~\"(${Environment:pipe})\", service_namespace=\"CPI\", service_name=~\"(${Tenant:pipe})\"} == 0)",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "range": true,
@@ -458,7 +458,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "count(integration_flow_is_running_total_ratio{deployment_environment=~\"(${env:pipe})\", service_namespace=\"cpi\", service_name=~\"(${tenant_name:pipe})\"} == 0.5)",
+          "expr": "count(integration_flow_is_running_total_count{deployment_environment=~\"(${Environment:pipe})\", service_namespace=\"CPI\", service_name=~\"(${Tenant:pipe})\"} == 0.5)",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "range": true,
@@ -523,12 +523,8 @@
     "list": [
       {
         "current": {
-          "text": [
-            "dev"
-          ],
-          "value": [
-            "dev"
-          ]
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -539,7 +535,7 @@
         "includeAll": true,
         "label": "Environment",
         "multi": true,
-        "name": "env",
+        "name": "Environment",
         "options": [],
         "query": {
           "qryType": 1,
@@ -553,26 +549,22 @@
       },
       {
         "current": {
-          "text": [
-            "kangoo-dev2-aws"
-          ],
-          "value": [
-            "kangoo-dev2-aws"
-          ]
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
           "uid": "grafanacloud-prom"
         },
-        "definition": "label_values({deployment_environment=~\"(${env:pipe})\", service_namespace=\"CPI\"},service_name)",
+        "definition": "label_values({deployment_environment=~\"(${Environment:pipe})\", service_namespace=\"CPI\"},service_name)",
         "includeAll": true,
-        "label": "Tenant Name",
+        "label": "Tenant",
         "multi": true,
-        "name": "tenant_name",
+        "name": "Tenant",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values({deployment_environment=~\"(${env:pipe})\", service_namespace=\"CPI\"},service_name)",
+          "query": "label_values({deployment_environment=~\"(${Environment:pipe})\", service_namespace=\"CPI\"},service_name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -589,5 +581,5 @@
   "timezone": "browser",
   "title": "CPI Monitoring - Integration Flows",
   "uid": "degsc1jr9dbeof",
-  "version": 6
+  "version": 17
 }
